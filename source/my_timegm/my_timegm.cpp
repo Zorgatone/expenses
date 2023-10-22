@@ -4,14 +4,14 @@
 
 #include <chrono>
 
-#include "my_gmtime.h"
+#include "my_timegm.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 // https://stackoverflow.com/a/75714048/1255826
-std::time_t my_gmtime(std::tm const *t) {
+std::time_t my_timegm(std::tm const *t) {
     using namespace std::chrono;
     return system_clock::to_time_t(
             sys_days{year{t->tm_year+1900}/(t->tm_mon+1)/t->tm_mday} +

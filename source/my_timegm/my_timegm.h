@@ -2,8 +2,8 @@
 // Created by zorgatone on 22/10/2023.
 //
 
-#ifndef EXPENSES_MY_GMTIME_H
-#define EXPENSES_MY_GMTIME_H
+#ifndef EXPENSES_MY_TIMEGM_H
+#define EXPENSES_MY_TIMEGM_H
 
 #ifdef __cplusplus
 
@@ -19,7 +19,7 @@ extern "C" {
 #define TM struct tm
 #endif
 
-TIMET my_gmtime(TM const *t);
+TIMET my_timegm(TM const *t);
 
 #ifdef __cplusplus
 }
@@ -28,4 +28,4 @@ TIMET my_gmtime(TM const *t);
 #undef TM
 #undef TIMET
 
-#endif //EXPENSES_MY_GMTIME_H
+#endif //EXPENSES_MY_TIMEGM_H

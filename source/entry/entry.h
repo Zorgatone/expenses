@@ -7,9 +7,11 @@
 
 #include <time.h>
 
+#include "time_utils/time_utils.h"
+
 typedef struct {
-    long timestamp;
-    unsigned long cents;
+    tstamp_t timestamp;
+    long cents;
 
     // Dynamically allocated at the end of the struct
     char name[];
