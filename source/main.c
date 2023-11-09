@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "time_utils/time_utils.h"
+#include "timestamp/timestamp.h"
 #include "entry/entry.h"
 
 int main(void) {
@@ -20,11 +20,11 @@ int main(void) {
     e->timestamp = ts;
     e->cents = (long) (1936.27 * 100.0);
 
-//    time_t t2 = from_timestamp(ts);
+    time_t t2 = from_timestamp(ts);
 
     strncpy(e->name, name, len);
 
-    printf("%s: %.2LF\n", e->name, (((long double) e->cents) / 100.0));
+    printf("%s: %.2F\n", e->name, (((double) e->cents) / 100.0));
 
     free(e);
 

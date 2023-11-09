@@ -4,7 +4,7 @@
 
 #include <chrono>
 
-#include "my_timegm.h"
+#include "time_utils.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -16,6 +16,13 @@ std::time_t my_timegm(std::tm const *t) {
     return system_clock::to_time_t(
             sys_days{year{t->tm_year+1900}/(t->tm_mon+1)/t->tm_mday} +
             hours{t->tm_hour} + minutes{t->tm_min} + seconds{t->tm_sec});
+}
+
+std::time_t time_add(std::time_t t, long duration) {
+    using namespace std::chrono;
+    return system_clock::to_time_t(
+        system_clock::from_time_t(t) + seconds(duration)
+    );
 }
 
 #ifdef __cplusplus

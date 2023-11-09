@@ -7,7 +7,7 @@
 
 #include <time.h>
 
-#include "time_utils/time_utils.h"
+#include "timestamp/timestamp.h"
 
 typedef struct {
     tstamp_t timestamp;

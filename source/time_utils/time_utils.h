@@ -2,14 +2,32 @@
 // Created by zorgatone on 22/10/2023.
 //
 
-#ifndef EXPENSES_TIME_UTILS_H
-#define EXPENSES_TIME_UTILS_H
+#ifndef EXPENSES_MY_TIMEGM_H
+#define EXPENSES_MY_TIMEGM_H
 
+#ifdef __cplusplus
+
+#include <ctime>
+#define TIMET std::time_t
+#define TM std::tm
+
+extern "C" {
+
+#else
 #include <time.h>
+#define TIMET time_t
+#define TM struct tm
+#endif
 
-typedef long long tstamp_t;
+TIMET my_timegm(TM const *t);
 
-tstamp_t to_timestamp(time_t t);
-time_t from_timestamp(tstamp_t ts);
+TIMET time_add(TIMET t, long duration);
 
-#endif //EXPENSES_TIME_UTILS_H
+#ifdef __cplusplus
+}
+#endif
+
+#undef TM
+#undef TIMET
+
+#endif //EXPENSES_MY_TIMEGM_H
